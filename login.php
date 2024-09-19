@@ -7,76 +7,8 @@
     <link rel="icon" type="image/x-icon" href="/assets/fav.ico">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-    <style>
-        /* Custom styling for the navbar */
-        .navbar-custom {
-            background-color: #0d47a1; /* Dark blue background */
-        }
-
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link,
-        .navbar-custom .form-control {
-            color: #ffffff; /* White text */
-        }
-
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .navbar-brand:hover {
-            color: #ffeb3b; /* Yellow hover effect */
-        }
-
-        .navbar-custom .form-control {
-            background-color: #ffffff; /* White search input */
-        }
-
-        .navbar-custom .btn-secondary {
-            background-color: #ffeb3b; /* Yellow search button */
-            color: #000000; /* Black text for button */
-        }
-
-        .navbar-custom .btn-secondary:hover {
-            background-color: #ffc107; /* Darker yellow on hover */
-        }
-
-        /* Center form on the page and add shadow */
-        .form-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-        }
-
-        /* Center form */
-        .form-center {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Logo styling */
-        .logo {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #0d47a1;
-        }
-
-        .logo i {
-            margin-right: 10px;
-        }
-
-        /* Input with icon styling */
-        .input-group-text {
-            background-color: #0d47a1;
-            color: #ffffff;
-            border: 1px solid #0d47a1;
-        }
-
-        .form-control {
-            border-left: 0;
-        }
-    </style>
 </head>
 <body>
 

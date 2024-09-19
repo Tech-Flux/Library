@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port       = 587;
 
             // Sender and recipient settings
-            $mail->setFrom('kevinlucasotieno@gmail.com', 'Mailer');
+            $mail->setFrom('kevinlucasotieno@gmail.com', 'Library Admin');
             $mail->addAddress($email);    // Add recipient
 
             // Content

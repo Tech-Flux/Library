@@ -9,46 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
-    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="css/reset.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        .container {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .form-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .logo {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #0d47a1;
-        }
-        .logo i {
-            margin-right: 10px;
-        }
-        .social-links {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #0d47a1;
-            text-decoration: none;
-        }
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-        .alert {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
 

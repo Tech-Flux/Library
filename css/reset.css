@@ -1,0 +1,36 @@
+.container {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .form-container {
+          background-color: #ffffff;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+          text-align: center;
+          font-size: 40px;
+          margin-bottom: 20px;
+          color: #0d47a1;
+      }
+      .logo i {
+          margin-right: 10px;
+      }
+      .social-links {
+          margin-top: 20px;
+          text-align: center;
+      }
+      .social-links a {
+          margin: 0 10px;
+          color: #0d47a1;
+          text-decoration: none;
+      }
+      .social-links a:hover {
+          text-decoration: underline;
+      }
+      .alert {
+          margin-top: 20px;
+      }
