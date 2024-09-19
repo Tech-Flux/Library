@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $repeat_password = $_POST['repeat_password'];
     $age = (int)$_POST['age'];
-    
+
     // Handle profile photo upload
     $profile_photo = $_FILES['profile_photo']['name'];
     $profile_photo_tmp = $_FILES['profile_photo']['tmp_name'];
@@ -79,6 +79,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Generate and store OTP
     $otp = mt_rand(10000000, 99999999);
+
+    // Handle file upload
+    if (!empty($profile_photo)) {
+        $upload_dir = "../assets/uploads/";
+        $file_extension = pathinfo($profile_photo, PATHINFO_EXTENSION);
+        $random_file_name = uniqid() . "." . $file_extension;
+        $profile_photo_path = $upload_dir . $random_file_name;
+
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+
+        if (!move_uploaded_file($profile_photo_tmp, $profile_photo_path)) {
+            $_SESSION['error_message'] = "Failed to upload profile photo.";
+            header('Location: ../signup.php');
+            exit();
+        }
+    } else {
+        $random_file_name = NULL; // No profile photo uploaded
+    }
 
     // Insert user into the database
     $sql = "INSERT INTO users (first_name, last_name, email, phone_number, password, age, profile_photo, otp) 
