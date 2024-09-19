@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Redirect with failed status due to invalid email
-        header("Location: forgotPassword.php?status=failed&reason=invalid_email");
+        header("Location: reset.php?status=failed&reason=invalid_email");
         exit();
     }
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,31 +9,56 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/signup.css">
-
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
 
 <div class="container form-center">
     <div class="col-md-8">
         <div class="form-container">
-            
             <div class="logo">
                 <i class="bi bi-book"></i> Library
             </div>
 
             <?php
-            session_start(); 
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
-            if (isset($_SESSION['success_message'])) {
-                echo "<div class='alert alert-success' role='alert'>" . $_SESSION['success_message'] . "</div>";
-                unset($_SESSION['success_message']);
-            }
-            if (isset($_SESSION['error_message'])) {
-                echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['error_message'] . "</div>";
-                unset($_SESSION['error_message']);
-            }
+            session_start();
             ?>
+
+            <?php if (isset($_GET['status'])): ?>
+                <!-- Load SweetAlert script if status is set -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        <?php if ($_GET['status'] == 'success'): ?>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: 'Registration successful.',
+                                confirmButtonText: 'Close',
+                                confirmButtonColor: '#3085d6'
+                            });
+                        <?php elseif ($_GET['status'] == 'failed'): ?>
+                            <?php
+                            $reason = isset($_GET['reason']) ? $_GET['reason'] : '';
+                            $errorMessage = 'Failed to send OTP. Please try again.';
+                            if ($reason == 'invalid_email') {
+                                $errorMessage = 'Invalid email address. Please provide a valid one.';
+                            } elseif ($reason == 'mailer_error') {
+                                $errorMessage = 'There was an issue sending the email. Please try again later.';
+                            }
+                            ?>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Failed!',
+                                text: '<?php echo $errorMessage; ?>',
+                                confirmButtonText: 'Close',
+                                confirmButtonColor: '#d33'
+                            });
+                        <?php endif; ?>
+                    });
+                </script>
+           <?php endif; ?>
 
             <form class="row g-3 needs-validation" novalidate action="php/register.php" method="POST" enctype="multipart/form-data">
                 <div class="col-md-6">
@@ -139,8 +163,8 @@
     </div>
 </div>
 
-<script src="js/signup.js"></script>
-
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
