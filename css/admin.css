@@ -1,0 +1,151 @@
+body {
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          background-color: white;
+          color: black;
+          margin: 0;
+      }
+
+      /* Sidebar */
+      .sidebar {
+          height: 100vh;
+          width: 250px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #deebeb;
+          padding-top: 20px;
+          border-right: 1px solid #deebeb;
+          z-index: 1000;
+          transition: transform 0.3s ease-in-out;
+      }
+
+      .sidebar a {
+          padding: 10px 20px;
+          text-decoration: none;
+          font-size: 16px;
+          color: black;
+          display: block;
+      }
+
+      .sidebar a:hover {
+          background-color: #f1f1f1;
+      }
+
+      .sidebar .nav-link {
+          display: flex;
+          align-items: center;
+      }
+
+      .sidebar .nav-link i {
+          margin-right: 10px;
+          color: blue;
+      }
+
+      .sidebar .profile-section {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .sidebar .profile-section img {
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          cursor: pointer;
+      }
+
+      /* Profile Dropdown */
+      .profile-dropdown-menu {
+          position: absolute;
+          top: 100px;
+          left: 50%;
+          border: 2px solid black;
+          transform: translateX(-50%);
+          background-color: #deebeb;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.41);
+          border-radius: 10px;
+          padding: 20px;
+          display: none;
+          z-index: 1100;
+          width: 200px;
+      }
+
+      .profile-dropdown-menu a {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 10px;
+          color: black;
+          text-decoration: none;
+          gap: 10px;
+          font-size: 14px;
+      }
+
+      .profile-dropdown-menu a:hover {
+          background-color: #f1f1f1;
+      }
+
+      .profile-dropdown-menu i {
+          font-size: 1.2rem;
+      }
+
+      .profile-dropdown-menu .close-btn {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          cursor: pointer;
+          font-size: 20px;
+          color: red;
+      }
+
+      /* Toggle sidebar on small screens */
+      @media (max-width: 768px) {
+          .sidebar {
+              width: 70px;
+              padding-top: 10px;
+              text-align: center;
+          }
+
+          .sidebar .nav-link {
+              justify-content: center;
+          }
+
+          .sidebar .nav-link i {
+              margin-right: 0;
+          }
+
+          .sidebar a span {
+              display: none;
+          }
+      }
+
+      /* Hide Sidebar */
+      .sidebar.hidden {
+          transform: translateX(-100%);
+      }
+
+      /* Content */
+      .content {
+          margin-left: 250px;
+          padding: 20px;
+          transition: margin-left 0.3s;
+      }
+
+      .content.hidden {
+          margin-left: 0;
+      }
+
+      /* Sidebar Toggle Button */
+      .sidebar-toggle {
+          position: fixed;
+          bottom: 15px;
+          left: 15px;
+          cursor: pointer;
+          z-index: 1100;
+      }
+
+      /* Flex Centering for dropdown menu */
+      .profile-dropdown-menu a span {
+          flex-grow: 1;
+      }

@@ -21,14 +21,11 @@
                 <i class="bi bi-book"></i> Library
             </div>
 
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" method="post" action="php/login.php" novalidate>
                 <div class="col-12">
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                        <input type="email" class="form-control" id="validationEmail" placeholder="Email" required>
-                    </div>
-                    <div class="valid-feedback">
-                        Looks good!
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                     </div>
                     <div class="invalid-feedback">
                         Please enter a valid email address.
@@ -38,10 +35,7 @@
                 <div class="col-12">
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                        <input type="password" class="form-control" id="validationPassword" placeholder="Password" required>
-                    </div>
-                    <div class="valid-feedback">
-                        Looks good!
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
                     </div>
                     <div class="invalid-feedback">
                         Please provide your password.
