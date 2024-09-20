@@ -63,7 +63,7 @@ $profileImage = isset($_SESSION['profile_photo']) ? $_SESSION['profile_photo'] :
 
     <!-- Profile Dropdown Menu -->
     <div class="profile-dropdown-menu" id="profileDropdownMenu">
-        <i class="bi bi-x-lg close-btn" id="closeProfileDialog"></i>
+        <i class="bi bi-backspace-fill close-btn" id="closeProfileDialog"></i> 
         <a href="#"><i class="bi bi-person"></i><span>Account Settings</span></a>
         <a href="#"><i class="bi bi-shield-lock"></i><span>Change Password</span></a>
         <a href="#"><i class="bi bi-envelope"></i><span>Messages</span></a>
