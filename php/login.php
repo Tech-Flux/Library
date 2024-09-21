@@ -9,8 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Query to fetch user data including profile image and ID
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
@@ -21,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
             $_SESSION['user_id'] = $user['id']; 
             $_SESSION['username'] = $user['first_name'];
-            $_SESSION['profile_photo'] = !empty($user['profile_photo']) ? '../assets/uploads/' . $user['profile_photo'] : '../assets/user.png'; // Ensure the image path is correct
-
-            // Redirect to admin panel
-            header("Location: ../admin/index.php");
-            exit();
+            $_SESSION['profile_photo'] = !empty($user['profile_photo']) ? '../assets/uploads/' . $user['profile_photo'] : '../assets/user.png';
+            
+            // Redirect to the admin page with success status
+            header("Location: ../admin/index.php?status=success");
+            exit(); // Ensure no further code is executed after the redirect
         } else {
             $error = "Invalid password. Please try again.";
         }

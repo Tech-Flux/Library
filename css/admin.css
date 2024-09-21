@@ -9,7 +9,7 @@ body {
       /* Sidebar */
       .sidebar {
           height: 100vh;
-          width: 250px;
+          width: 230px;
           position: fixed;
           top: 0;
           left: 0;
@@ -18,6 +18,7 @@ body {
           border-right: 1px solid #deebeb;
           z-index: 1000;
           transition: transform 0.3s ease-in-out;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.41);
       }
 
       .sidebar a {
@@ -42,6 +43,10 @@ body {
           color: blue;
       }
 
+      .content{
+          text-align: center;
+      }
+
       .sidebar .profile-section {
           text-align: center;
           margin-bottom: 20px;
@@ -49,10 +54,15 @@ body {
 
       .sidebar .profile-section img {
           border-radius: 50%;
-          width: 80px;
-          height: 80px;
+          width: 70px;
+          height: 70px;
           object-fit: cover;
+          left: 20px;
           cursor: pointer;
+      }
+
+      .nav-bar-bg{
+          background-color: #deebeb;
       }
 
       /* Profile Dropdown */
@@ -78,7 +88,7 @@ body {
           padding: 10px;
           color: black;
           text-decoration: none;
-          gap: 10px;
+          gap: 15px;
           font-size: 14px;
       }
 
@@ -93,7 +103,7 @@ body {
       .profile-dropdown-menu .close-btn {
           position: absolute;
           top: 5px;
-          right: 5px;
+          right: 7px;
           cursor: pointer;
           font-size: 20px;
           color: #000;
@@ -118,6 +128,15 @@ body {
           .sidebar a span {
               display: none;
           }
+
+ .sidebar .profile-section img {
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          left: 20px;
+          cursor: pointer;
+                }
       }
 
       /* Hide Sidebar */
